@@ -1,0 +1,51 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  background: #cccccc;
+}
+
+#wrap {
+  width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+#header {
+  padding: 5px 10px;
+  background: #ffffff;
+}
+
+#nav {
+  padding: 5px 10px;
+  background: #ffffff;
+}
+
+#leftcontent {
+  float: left;
+}
+
+#main {
+  float: left;
+  width: 900px;
+  padding: 10px;
+  background: #ffffff;
+}
+
+#sidebar {
+  float: right;
+  width: 260px;
+  padding: 10px;
+  background: #ffffff;
+}
+
+#footer {
+  clear: both;
+  padding: 1px;
+  background: #cccccc;
+}
+
+#footer p {
+  margin: 0;
+}
+
