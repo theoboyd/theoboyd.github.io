@@ -32,7 +32,8 @@ $originals_dir = 'originals';
 $labels_dir = 'labels';
 
 $image_files = array_diff(scandir($originals_dir), array('..', '.'));
-$text_files =array_diff(scandir($labels_dir), array('..', '.'));
+$text_files =
+array_diff(scandir($labels_dir), array('..', '.'));
 
 // Sadly array_rand() is heavily cached by my systems so we use mt_rand instead:
 $image_name = $image_files[mt_rand(0, count($image_files))];
