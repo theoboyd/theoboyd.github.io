@@ -1,31 +1,30 @@
 <!doctype html>
 <html lang="en">
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="/dyn.js"></script>
+  <script src="/scripts/dyn.js"></script>
   <head>
     <title>Theo Boyd</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="styles/main.css" />
-    <link rel="stylesheet" type="text/css" href="styles/columns.css" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
   </head>
   <body>
     <div id="wrap">
       <div id="main">
-        <div id="leftcontent">
           <header class="body">
-            <h2><img class="thumb" src="theoboyd.jpg" alt="" /> Theo Boyd</h2>
           </header>
           <section id="content" class="body">
-            Software engineer and AI researcher.
+            <div class="tabframe">
+              <div class="tabbar">
+                <span class="tab default">Software engineer and AI researcher.</span>
+              </div>
+            </div>
           </section>
-          <section id="content_dyn" class="body">
-            Javascript is turned off.
+          <section id="links" class="body">
+            <p><a class="grey blob" href="/blog.html"><span class="link">Blog</span></a></p>
+            <p><a class="grey blob" href="/contact.html">Contact me for <span class="link">my curriculum vitae</span> &amp; <span class="link">freelance enquiries</span></a></p>
+            <p><a class="grey blob" href="/projects.html"><span class="link">Projects</span></a></p>
           </section>
-        </div>
+          <section id="preview" class="body">
+            <div id="dyncontent_blogpreview" class="body">
+            </div>
+          </section>
       </div>
     </div>
   </body>

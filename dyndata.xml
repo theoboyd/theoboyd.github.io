@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<blog_posts>
+<blog_post>
+<title>Title</title>
+<id>YYYYMMDD</id>
+<content>
+    Plaintext content.
+</content>
+<comments>
+<comment><name>Username</name><content>Plaintext content.</content></comment>
+</comments>
+</blog_post>
+</blog_posts>
+</data>
