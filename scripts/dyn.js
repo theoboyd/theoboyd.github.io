@@ -102,16 +102,31 @@ async function initialise() {
     // Load dynamic content
     $(document).ready(function () {
       const page = window.location.pathname;
-      if (["/index.html", "/blog.html"].includes(page)) {
+      if (["/index.html", "/blog.html", "/contact.html"].includes(page)) {
         $.get("/dyndata.xml", function (data) {
+          const blogPosts = getElements(data, "blog_post");
+
           try {
+            if (["/index.html", "/contact.html"].includes(page)) {
+              const blogBlocks = document.getElementsByClassName("blogref");
+              if (blogBlocks.length > 0) {
+                if (blogPosts.length > 0) {
+                  for (const blogBlock of blogBlocks) {
+                    blogBlock.classList.remove("hidden");
+                  }
+                }
+                else {
+                  for (const blogBlock of blogBlocks) {
+                    blogBlock.classList.add("hidden");
+                  }
+                }
+              }
+            }
+
             if (page === "/index.html") {
               // Update blog preview
               const blogPreviewElement = document.getElementById("dyncontent_blogpreview");
               if (blogPreviewElement) {
-                const blogPosts = getElements(data, "blog_post");
-
-                const blogBlock = document.getElementById("blog");
                 if (blogPosts.length > 0) {
                   const sortedPosts = sortBlogPostsByDate(blogPosts);
                   const latestPost = sortedPosts[0];
@@ -120,10 +135,7 @@ async function initialise() {
 
                   if (postId && postTitle) {
                     blogPreviewElement.innerHTML = `Latest blog post: <a class="gold" href="/blog.html#${postId}">${postTitle}</a>`;
-                    blogBlock.innerHTML = `<a class="grey blob" href="/blog.html"><span class="link">Blog</span></a>`;
                   }
-                } else {
-                  blogBlock.innerHTML = ``;
                 }
               }
             }
@@ -131,7 +143,6 @@ async function initialise() {
             else if (page === "/blog.html") {
               const blogPostsElement = document.getElementById("dyncontent_blogposts");
               if (blogPostsElement) {
-                const blogPosts = getElements(data, "blog_post");
                 if (blogPosts.length > 0) {
                   const sortedPosts = sortBlogPostsByDate(blogPosts);
 

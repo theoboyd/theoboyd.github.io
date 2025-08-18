@@ -334,3 +334,7 @@ img.barcode {
 .dashedhr {
   border: dotted 0.5px;
 }
+
+.hidden {
+  display: none !important;
+}
