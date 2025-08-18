@@ -110,6 +110,8 @@ async function initialise() {
               const blogPreviewElement = document.getElementById("dyncontent_blogpreview");
               if (blogPreviewElement) {
                 const blogPosts = getElements(data, "blog_post");
+
+                const blogBlock = document.getElementById("blog");
                 if (blogPosts.length > 0) {
                   const sortedPosts = sortBlogPostsByDate(blogPosts);
                   const latestPost = sortedPosts[0];
@@ -118,7 +120,10 @@ async function initialise() {
 
                   if (postId && postTitle) {
                     blogPreviewElement.innerHTML = `Latest blog post: <a class="gold" href="/blog.html#${postId}">${postTitle}</a>`;
+                    blogBlock.innerHTML = `<a class="grey blob" href="/blog.html"><span class="link">Blog</span></a>`;
                   }
+                } else {
+                  blogBlock.innerHTML = ``;
                 }
               }
             }
@@ -173,7 +178,7 @@ async function initialise() {
                       return `
                         <h2 id="${postId}">${postTitle}</h2>
                         <div class="smallprint">${formattedDate} &nbsp; ${commentLink}</div>
-                        <div class="blogcontent">${postContent.replace(/^    /gm, "&emsp;&emsp;").replace(/\n\n/g, "<br />").replace(/\n/g, " ")}</div>
+                        <div class="blogcontent">${postContent.replace(/^    /gm, "&emsp;&emsp;").replace(/\n\n/g, "<br />").replace(/\n/g, " ").replace(/_\//g, "<i>").replace(/\/_/g, "</i>")}</div>
                         ${commentsHtml}<hr />
                       `;
                     }
